@@ -32,9 +32,13 @@
             ],
             "styles": [
               "src/@vex/styles/tailwind.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js"
+            ],
             "customWebpackConfig": {
               "path": "./webpack.config.js"
             },
@@ -142,6 +146,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "vex"
 }

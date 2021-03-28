@@ -18,6 +18,7 @@ import icArrowDropDown from '@iconify/icons-ic/twotone-arrow-drop-down';
 import { PopoverService } from '../../components/popover/popover.service';
 import { MegaMenuComponent } from '../../components/mega-menu/mega-menu.component';
 import icSearch from '@iconify/icons-ic/twotone-search';
+import icHome from '@iconify/icons-ic/twotone-home';
 
 @Component({
   selector: 'vex-toolbar',
@@ -40,18 +41,14 @@ export class ToolbarComponent implements OnInit {
   isNavbarBelowToolbar$ = this.configService.config$.pipe(map(config => config.navbar.position === 'below-toolbar'));
 
   icSearch = icSearch;
-  icBookmarks = icBookmarks;
+  icHome = icHome;
   emojioneUS = emojioneUS;
-  emojioneDE = emojioneDE;
   icMenu = icMenu;
   icPersonAdd = icPersonAdd;
   icAssignmentTurnedIn = icAssignmentTurnedIn;
   icBallot = icBallot;
-  icDescription = icDescription;
   icAssignment = icAssignment;
   icReceipt = icReceipt;
-  icDoneAll = icDoneAll;
-  icArrowDropDown = icArrowDropDown;
 
   constructor(private layoutService: LayoutService,
               private configService: ConfigService,
@@ -67,27 +64,6 @@ export class ToolbarComponent implements OnInit {
 
   openSidenav() {
     this.layoutService.openSidenav();
-  }
-
-  openMegaMenu(origin: ElementRef | HTMLElement) {
-    this.popoverService.open({
-      content: MegaMenuComponent,
-      origin,
-      position: [
-        {
-          originX: 'start',
-          originY: 'bottom',
-          overlayX: 'start',
-          overlayY: 'top'
-        },
-        {
-          originX: 'end',
-          originY: 'bottom',
-          overlayX: 'end',
-          overlayY: 'top',
-        },
-      ]
-    });
   }
 
   openSearch() {

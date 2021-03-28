@@ -1,0 +1,49 @@
+<form [formGroup]="filterForm" (submit)="submitDetails($event)">
+    <div class="grid grid-cols-6 gap-4">
+        <div class="col-span-5 grid md:grid-cols-4 sm:grid-cols-1 gap-4">
+
+            <mat-form-field>
+                <mat-label>Fon Tipi Seçiniz</mat-label>
+                <mat-select (selectionChange)="onFundTypeSelect($event)" formControlName="fundType">
+                    <mat-option *ngFor="let option of fundTypesOptions" [value]="option.id">{{option.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Fon Kodu</mat-label>
+                <input formControlName="fundCode"
+                       [matAutocomplete]="auto"
+                       matInput
+                       type="text">
+                <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+                    <mat-option *ngFor="let option of filteredFundCodesOptions | async"
+                                [value]="option.Kodu">{{option.Adi}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Başlangıç Tarihi-Bitiş Tarihi</mat-label>
+                <mat-date-range-input [max]="maxDate" [min]="minDate" [rangePicker]="picker">
+                    <input formControlName="start" matStartDate>
+                    <input formControlName="end" matEndDate>
+                </mat-date-range-input>
+                <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Gösterim Periodu</mat-label>
+                <mat-select formControlName="period">
+                    <mat-option *ngFor="let option of periodOptions" [value]="option.type">{{option.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+        <div class="m-2">
+            <button type="submit" color="primary" mat-raised-button>Göster</button>
+        </div>
+    </div>
+</form>
+
+
+
