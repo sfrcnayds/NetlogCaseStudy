@@ -9,7 +9,7 @@
         <tbody>
         <tr *ngFor="let item of data">
             <td>{{item.Tarih | date:'dd.MM.YYYY'}}</td>
-            <td *ngFor="let column of dataColumns">{{item[column]}}</td>
+            <td *ngFor="let column of dataColumns">{{item[column] | number}}</td>
         </tr>
         </tbody>
     </table>

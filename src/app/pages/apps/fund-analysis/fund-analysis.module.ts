@@ -15,14 +15,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {FundChartComponent} from './fund-chart/fund-chart.component';
 import {FundTableComponent} from './fund-table/fund-table.component';
 import {DataTablesModule} from 'angular-datatables';
-
-import { FusionChartsModule } from "angular-fusioncharts";
+import {FusionChartsModule} from 'angular-fusioncharts';
 
 // Import FusionCharts library and chart modules
-import * as FusionCharts from "fusioncharts";
-import * as charts from "fusioncharts/fusioncharts.charts";
-import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import * as FusionCharts from 'fusioncharts';
+import * as charts from 'fusioncharts/fusioncharts.charts';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
+
 @NgModule({
     declarations: [FundAnalysisComponent, FundFormComponent, FundChartComponent, FundTableComponent],
     imports: [

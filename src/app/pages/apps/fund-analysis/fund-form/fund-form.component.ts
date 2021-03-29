@@ -45,7 +45,8 @@ export class FundFormComponent implements OnInit {
         period: new FormControl('', [Validators.required])
     });
 
-    constructor(private fundAnalysisService: FundAnalysisService, private fundFormService: FundFormService) {
+    constructor(private fundAnalysisService: FundAnalysisService,
+                private fundFormService: FundFormService) {
     }
 
     ngOnInit(): void {
@@ -70,8 +71,8 @@ export class FundFormComponent implements OnInit {
     }
 
     submitDetails(event: Event) {
-        const startDate = this.formatDateForApi(this.filterForm.value.start.toDate());
-        const endDate = this.formatDateForApi(this.filterForm.value.end.toDate());
+        const startDate = this._formatDateForApi(this.filterForm.value.start.toDate());
+        const endDate = this._formatDateForApi(this.filterForm.value.end.toDate());
 
         const fundCode = this.filterForm.value.fundCode;
         const fundType = this.filterForm.value.fundType;
@@ -87,7 +88,7 @@ export class FundFormComponent implements OnInit {
             || option.Kodu.toLowerCase().indexOf(filterValue) === 0));
     }
 
-    private formatDateForApi(date: Date) {
+    private _formatDateForApi(date: Date) {
         const day = date.getDate();
         const month = date.getMonth() + 1;
         const year = date.getFullYear();
