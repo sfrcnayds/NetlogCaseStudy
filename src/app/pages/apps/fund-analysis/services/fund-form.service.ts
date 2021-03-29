@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import {FundFormResponse} from '../../../../api-services/interfaces/fund-form-response';
 import {FundDataResponse} from '../../../../api-services/interfaces/fund-data-response';
 
 @Injectable({
@@ -7,7 +8,7 @@ import {FundDataResponse} from '../../../../api-services/interfaces/fund-data-re
 })
 export class FundFormService {
 
-    private dataSource = new BehaviorSubject<FundDataResponse[]>(null);
+    private dataSource = new BehaviorSubject<FundDataResponse>(null);
     currentData = this.dataSource.asObservable();
 
     changeData(data){

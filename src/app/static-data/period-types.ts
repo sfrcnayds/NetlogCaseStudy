@@ -1,7 +1,7 @@
 export enum Period {
     Daily,
-    Monthly,
-    Yearly
+    Weekly,
+    Monthly
 }
 
 export interface PeriodTypeSelect {
@@ -11,6 +11,6 @@ export interface PeriodTypeSelect {
 
 export const periodTypes: Array<PeriodTypeSelect> = [
     {type: Period.Daily, name: 'Günlük'},
-    {type: Period.Monthly, name: 'Aylık'},
-    {type: Period.Yearly, name: 'Yıllık'}
+    {type: Period.Weekly, name: 'Haftalık'},
+    {type: Period.Monthly, name: 'Aylık'}
 ];

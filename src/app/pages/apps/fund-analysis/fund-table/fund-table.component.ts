@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FundFormService} from '../services/fund-form.service';
 import {Subject} from 'rxjs';
-import {FundDataResponse} from '../../../../api-services/interfaces/fund-data-response';
+import {FundFormResponse} from '../../../../api-services/interfaces/fund-form-response';
 import {DataTableDirective} from 'angular-datatables';
 import {fundDataColumns} from '../../../../static-data/fund-data-columns';
 
@@ -17,7 +17,7 @@ export class FundTableComponent implements OnInit, AfterViewInit,OnDestroy {
 
     dataColumns: string[] = fundDataColumns;
 
-    data: Array<FundDataResponse> = [];
+    data: Array<FundFormResponse> = [];
 
     constructor(private fundFormService: FundFormService) {
     }
@@ -28,11 +28,11 @@ export class FundTableComponent implements OnInit, AfterViewInit,OnDestroy {
             searching: false,
             pagingType: 'full_numbers'
         };
-        this.fundFormService.currentData.subscribe((data) => {
-            if (data) {
+        this.fundFormService.currentData.subscribe((response) => {
+            if (response?.data) {
                 this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
                     dtInstance.destroy();
-                    this.data = data;
+                    this.data = response.data;
                     this.dtTrigger.next();
                 });
             }

@@ -1,36 +1,7 @@
+import {Period} from '../../static-data/period-types';
+import {FundFormResponse} from './fund-form-response';
+
 export interface FundDataResponse {
-    Tarih: string;
-    FonKodu: string;
-    FonUnvani: string;
-    FonTipi: string;
-    FonTuru: string;
-    ToplamDeger: number;
-    BirimPayDegeri: number;
-    DolasimdakiPaySayisi: number;
-    YatirimciSayisi: number;
-    BankaBonosu: number;
-    Diger: number;
-    DevletTahvili: number;
-    DovizOdemeliBono: number;
-    DovizOdemeliTahvil: number;
-    Eurobond: number;
-    FinansmanBonosu: number;
-    FonKatilmaBelgesi: number;
-    GayrimenkulSertifikasi: number;
-    HazineBonosu: number;
-    HisseSenedi: number;
-    KamuDisBorclanmaAraci: number;
-    KamuKiraSertifikasi: number;
-    KatilimHesabi: number;
-    KiymetliMaden: number;
-    OzelSektorKiraSertifikasi: number;
-    OzelSektorTahvili: number;
-    TersRepo: number;
-    TPP: number;
-    TurevAraci: number;
-    VarligaDayaliMenkulKiymet: number;
-    VadeliMevduat: number;
-    YabanciBorclanmaAraci: number;
-    YabanciHisseSenedi: number;
-    YabanciMenkulKiymet: number;
+    period: Period,
+    data: Array<FundFormResponse>
 }

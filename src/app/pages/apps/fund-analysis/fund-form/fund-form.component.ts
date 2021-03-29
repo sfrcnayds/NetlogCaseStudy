@@ -11,6 +11,7 @@ import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS, MomentDateAdap
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import {periodTypes, PeriodTypeSelect} from '../../../../static-data/period-types';
 import {FundFormService} from '../services/fund-form.service';
+import {FundDataResponse} from '../../../../api-services/interfaces/fund-data-response';
 
 @Component({
     selector: 'filter-form',
@@ -77,8 +78,14 @@ export class FundFormComponent implements OnInit {
         const fundCode = this.filterForm.value.fundCode;
         const fundType = this.filterForm.value.fundType;
 
+        const periodType = this.filterForm.value.period;
+
         this.fundAnalysisService.getFundData(fundCode, fundType, startDate, endDate).subscribe((response) => {
-            this.fundFormService.changeData(response);
+            const dataResponse: FundDataResponse = {
+                period: periodType,
+                data: response
+            };
+            this.fundFormService.changeData(dataResponse);
         });
     }
 
